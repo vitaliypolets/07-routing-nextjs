@@ -1,0 +1,55 @@
+.app {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.button {
+  margin-left: auto;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  transition:
+    background-color 200ms ease,
+    transform 200ms ease;
+}
+
+.button:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.status {
+  text-align: center;
+  color: #6b7280;
+  font-size: 18px;
+}
+
+.error {
+  text-align: center;
+  color: #dc2626;
+  font-size: 18px;
+}
+
+.fetching {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  margin: 0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  background-color: #111827;
+  color: #ffffff;
+  font-size: 14px;
+}
