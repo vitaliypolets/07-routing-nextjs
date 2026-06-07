@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import {
   createNote,
   type CreateNotePayload,
-} from '@/lib/api/notes';
+} from '@/lib/api';
 import { NOTE_TAGS, type NoteTag } from '@/types/note';
 import css from './NoteForm.module.css';
 

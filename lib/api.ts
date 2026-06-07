@@ -21,6 +21,7 @@ export interface FetchNotesParams {
   page: number;
   perPage: number;
   search?: string;
+  tag?: NoteTag;
 }
 
 export interface FetchNotesResponse {
@@ -38,23 +39,24 @@ export const fetchNotes = async ({
   page,
   perPage,
   search = '',
+  tag,
 }: FetchNotesParams): Promise<FetchNotesResponse> => {
   const params = {
     page,
     perPage,
     ...(search.trim() !== '' && { search: search.trim() }),
+    ...(tag && { tag }),
   };
 
-  const response: AxiosResponse<FetchNotesResponse> = await notehubApi.get(
-    '/notes',
-    { params }
-  );
+  const response: AxiosResponse<FetchNotesResponse> = await notehubApi.get<
+    FetchNotesResponse
+  >('/notes', { params });
 
   return response.data;
 };
 
 export const fetchNoteById = async (noteId: string): Promise<Note> => {
-  const response: AxiosResponse<Note> = await notehubApi.get(
+  const response: AxiosResponse<Note> = await notehubApi.get<Note>(
     `/notes/${noteId}`
   );
 
@@ -64,7 +66,7 @@ export const fetchNoteById = async (noteId: string): Promise<Note> => {
 export const createNote = async (
   newNote: CreateNotePayload
 ): Promise<Note> => {
-  const response: AxiosResponse<Note> = await notehubApi.post(
+  const response: AxiosResponse<Note> = await notehubApi.post<Note>(
     '/notes',
     newNote
   );
@@ -73,7 +75,7 @@ export const createNote = async (
 };
 
 export const deleteNote = async (noteId: string): Promise<Note> => {
-  const response: AxiosResponse<Note> = await notehubApi.delete(
+  const response: AxiosResponse<Note> = await notehubApi.delete<Note>(
     `/notes/${noteId}`
   );
 

@@ -13,12 +13,10 @@ export const metadata: Metadata = {
 
 interface RootLayoutProps {
   children: ReactNode;
+  modal: ReactNode;
 }
 
-function RootLayout(props: RootLayoutProps) {
-  const { children } = props;
-  const modal = (props as RootLayoutProps & { modal?: ReactNode }).modal;
-
+function RootLayout({ children, modal }: RootLayoutProps) {
   return (
     <html lang="en">
       <body>
