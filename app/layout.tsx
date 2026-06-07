@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import type { ReactNode } from 'react';
 import 'modern-normalize/modern-normalize.css';
 import './globals.css';
 import Header from '@/components/Header/Header';
@@ -12,10 +11,10 @@ export const metadata: Metadata = {
 };
 
 interface RootLayoutProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body>
@@ -28,3 +27,5 @@ export default function RootLayout({ children }: RootLayoutProps) {
     </html>
   );
 }
+
+export default RootLayout;
