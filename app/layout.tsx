@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
 import 'modern-normalize/modern-normalize.css';
 import './globals.css';
 import Header from '@/components/Header/Header';
@@ -11,16 +12,20 @@ export const metadata: Metadata = {
 };
 
 interface RootLayoutProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
-function RootLayout({ children }: RootLayoutProps) {
+function RootLayout(props: RootLayoutProps) {
+  const { children } = props;
+  const modal = (props as RootLayoutProps & { modal?: ReactNode }).modal;
+
   return (
     <html lang="en">
       <body>
         <TanStackProvider>
           <Header />
           {children}
+          {modal}
           <Footer />
         </TanStackProvider>
       </body>

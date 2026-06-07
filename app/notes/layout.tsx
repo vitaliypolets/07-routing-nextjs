@@ -1,15 +1,11 @@
+import type { ReactNode } from 'react';
+
 interface NotesLayoutProps {
-  children: React.ReactNode;
-  modal: React.ReactNode;
+  children: ReactNode;
 }
 
-function NotesLayout({ children, modal }: NotesLayoutProps) {
-  return (
-    <>
-      {children}
-      {modal}
-    </>
-  );
+function NotesLayout({ children }: NotesLayoutProps) {
+  return <>{children}</>;
 }
 
 export default NotesLayout;
